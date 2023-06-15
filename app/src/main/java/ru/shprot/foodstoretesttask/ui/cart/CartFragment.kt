@@ -78,8 +78,9 @@ class CartFragment : Fragment(), NumberChangedListener {
 
     private fun updateLocation() {
 
-        val currentCity = LocationHolder().getCurrentCity(context!!)
-        binding.headCart.locationCityTextView.text = currentCity
+        LocationHolder().getCurrentCity(context!!) { city ->
+            binding.headCart.locationCityTextView.text = city
+        }
 
     }
 

@@ -1,6 +1,7 @@
 package ru.shprot.foodstoretesttask.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,8 +53,9 @@ class MainFragment: Fragment(), CategoryClickListener {
 
     private fun updateLocation() {
 
-        val currentCity = LocationHolder().getCurrentCity(context!!)
-        binding.head.locationCityTextView.text = currentCity
+        LocationHolder().getCurrentCity(context!!) { city ->
+            binding.head.locationCityTextView.text = city
+        }
 
     }
 

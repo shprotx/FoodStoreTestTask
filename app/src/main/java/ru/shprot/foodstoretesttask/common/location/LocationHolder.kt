@@ -12,21 +12,18 @@ import java.util.*
 class LocationHolder {
 
     @SuppressLint("MissingPermission")
-    fun getCurrentCity(context: Context) : String {
+    fun getCurrentCity(context: Context, callback: (city: String) -> Unit) {
 
         val fusedLocationClient: FusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(context)
-        var currentCity = "Unknown"
 
         fusedLocationClient.lastLocation.addOnSuccessListener { location : Location? ->
             val geocoder = Geocoder(context, Locale.getDefault())
             val addresses: MutableList<Address>? =
                 location?.let { geocoder.getFromLocation(it.latitude, location.longitude, 1) }
-            currentCity = addresses?.get(0)?.locality ?: "Unknown location"
+            val currentCity = addresses?.get(0)?.locality ?: "Unknown location"
+            callback(currentCity)
         }
-
-        return currentCity
-
     }
 
 }
