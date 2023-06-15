@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/itemCard"
+            android:layout_width="311dp"
+            android:layout_height="232dp"
+            android:backgroundTint="@color/dishBackground"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/dishImageCard"
+                android:layout_width="198dp"
+                android:layout_height="204dp"
+                android:layout_gravity="center"
+                android:src="@drawable/dish" />
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/buttonClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_10_white"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toEndOf="@id/itemCard"
+            app:layout_constraintTop_toTopOf="@id/itemCard"
+            app:srcCompat="@drawable/dialog_close"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_10_white"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonClose"
+            app:layout_constraintTop_toTopOf="@id/buttonClose"
+            app:srcCompat="@drawable/dialog_favorite"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/dishTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sf_pro_medium"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemCard"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/dishPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/dishTitleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/dishTitleTextView"
+            tools:text="1050" />
+
+        <TextView
+            android:id="@+id/dishRubleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:text="@string/ruble"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/dishPriceTextView"
+            app:layout_constraintStart_toEndOf="@+id/dishPriceTextView" />
+
+        <TextView
+            android:id="@+id/dishDotTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:fontFamily="@font/sf_pro_regular"
+            android:text="@string/point"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/dishRubleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/dishTitleTextView" />
+
+        <TextView
+            android:id="@+id/dishWeightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:fontFamily="@font/sf_pro_regular"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/dishDotTextView"
+            app:layout_constraintTop_toBottomOf="@+id/dishTitleTextView"
+            tools:text="410" />
+        '
+
+        <TextView
+            android:id="@+id/dishGramTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:fontFamily="@font/sf_pro_regular"
+            android:text="@string/gramm"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/dishWeightTextView"
+            app:layout_constraintTop_toBottomOf="@+id/dishTitleTextView" />
+
+        <TextView
+            android:id="@+id/dishDeskTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:scrollbars="vertical"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/dishPriceTextView"
+            app:layout_constraintTop_toBottomOf="@+id/dishPriceTextView"
+            tools:text="Description" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dishButtonCart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sf_pro_medium"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/add_to_cart"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dishDeskTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
