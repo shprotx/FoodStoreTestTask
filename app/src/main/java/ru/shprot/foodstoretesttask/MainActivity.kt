@@ -32,21 +32,10 @@ class MainActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),1)
 
         binding.bottomNav.setOnItemSelectedListener { item ->
-            val builder = NavOptions.Builder().setLaunchSingleTop(true).setRestoreState(false)
-            val navGraph = navController.currentDestination?.parent
-            val destination = navGraph?.findNode(item.itemId)
-            if(item.order and Menu.CATEGORY_SECONDARY == 0)
-                navController.graph.findStartDestination().id.let {
-                    builder.setPopUpTo(it, inclusive = false, saveState = true)
-                }
 
-            val navOptions = builder.build()
-            destination?.id.let {
-                if (it != null) {
-                    navController.navigate(it, null, navOptions)
-                }
-            }
+            navController.navigate(item.itemId)
             return@setOnItemSelectedListener true
+
         }
 
     }
